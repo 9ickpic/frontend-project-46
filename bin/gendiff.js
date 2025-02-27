@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import { parseData, findFile, readFileSync } from '../src/parser.js';
+import { parseData, findFile } from '../src/parser.js';
 import diff from '../src/diff.js';
 const program = new Command();
 
