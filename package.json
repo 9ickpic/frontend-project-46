@@ -1,0 +1,42 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/9ickpic/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/9ickpic/frontend-project-46/actions)",
+  "homepage": "https://github.com/9ickpic/frontend-project-46#readme",
+  "bugs": {
+    "url": "https://github.com/9ickpic/frontend-project-46/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9ickpic/frontend-project-46.git"
+  },
+  "license": "ISC",
+  "author": "Yaroslav Selyutin",
+  "type": "module",
+  "main": "./bin/gendiff.js",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "npx jest --bail",
+    "start": "node bin/gendiff.js"
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^10.0.0",
+    "@stylistic/eslint-plugin": "^4.1.0",
+    "commander": "^13.1.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-import": "^2.31.0",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "npm-check-updates": "^17.1.15",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.25.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  }
+}
