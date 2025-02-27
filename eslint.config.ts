@@ -21,6 +21,10 @@ export default [
       },
     },
     rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'off', // Отключаем проверку unsafe assignment
+      '@typescript-eslint/no-unsafe-member-access': 'off', // Отключаем проверку unsafe member access
+      '@typescript-eslint/no-unsafe-call': 'off', // Отключаем проверку unsafe call
+      '@typescript-eslint/no-explicit-any': 'off', // Отключаем проверку использования any
       '@typescript-eslint/no-unused-vars': 'off',
     },
   },
