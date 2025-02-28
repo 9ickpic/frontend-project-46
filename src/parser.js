@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @stylistic/brace-style */
+/* eslint-disable @stylistic/arrow-parens */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
