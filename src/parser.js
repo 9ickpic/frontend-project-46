@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @stylistic/brace-style */
 /* eslint-disable @stylistic/arrow-parens */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 
 import fs from 'fs';
 import path from 'path';
@@ -22,7 +20,7 @@ const findFile = (dir, fileName) => {
       } else if (file === fileName) {
         return filePath;
       }
-      return null;
+      throw new Error(`File not found: ${fileName}`);
     })
     .filter((res) => res !== null)
     .flat()[0];

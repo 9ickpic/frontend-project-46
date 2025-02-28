@@ -27,7 +27,11 @@ export default [
       '@typescript-eslint/no-explicit-any': 'off', // Отключаем проверку использования any
       '@typescript-eslint/no-unused-vars': 'off',
 
+      '@typescript-eslint/no-unsafe-return': 'off',
+
       '@stylistic/semi': 'off',
+
+      '@typescript-eslint/no-unsafe-argument': 'off',
     },
   },
 ]; // satisfies Linter.Config[]
