@@ -33,8 +33,8 @@ const buildTreeFormat = (tree, level = 1) => {
         throw new Error(`Unknown node type! ${type} is wrong!`);
     }
   });
+
   return result.join('\n');
 };
 
 export default tree => `{\n${buildTreeFormat(tree)}\n}`;
-// g

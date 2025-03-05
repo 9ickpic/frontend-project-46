@@ -15,19 +15,9 @@ program
   .option('-f, --format <type>', 'output format', 'stylish')
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2, options) => {
-    if (!fs.existsSync(filepath1) || !fs.existsSync(filepath2)) {
-      throw new Error('File not found'); // Заменить program.help()
-    }
     // Получаем абсолютные пути до файлов
     const absolutePath1 = path.resolve(process.cwd(), filepath1);
     const absolutePath2 = path.resolve(process.cwd(), filepath2);
-
-    if (!fs.existsSync(absolutePath1)) {
-      program.help();
-    }
-    if (!fs.existsSync(absolutePath2)) {
-      program.help();
-    }
 
     // Чтение файлов
     const fileContent1 = fs.readFileSync(absolutePath1, 'utf-8');
