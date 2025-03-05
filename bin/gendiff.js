@@ -15,6 +15,11 @@ program
   .option('-f, --format <type>', 'output format (default: "stylish")', 'stylish')
   .arguments('<filepath1>, <filepath2>')
   .action((filepath1, filepath2, options) => {
+    if (!fs.existsSync(filepath1) || !fs.existsSync(filepath2)) {
+      console.error('One or both files do not exist');
+      process.exit(1);
+    }
+
     // Получаем абсолютные пути до файлов
     const absolutePath1 = path.resolve(process.cwd(), filepath1);
     const absolutePath2 = path.resolve(process.cwd(), filepath2);
@@ -22,14 +27,6 @@ program
     // Чтение файлов
     const fileContent1 = fs.readFileSync(absolutePath1, 'utf-8');
     const fileContent2 = fs.readFileSync(absolutePath2, 'utf-8');
-
-    if (!fs.existsSync(absolutePath1)) {
-      throw new Error(`File ${absolutePath1} does not exist`);
-    }
-
-    if (!fs.existsSync(absolutePath2)) {
-      throw new Error(`File ${absolutePath2} does not exist`);
-    }
 
     // Определение формата файла на основе расширения
     const format1 = path.extname(filepath1).slice(1);
