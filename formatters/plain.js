@@ -1,18 +1,25 @@
 const formatPlain = (diff) => {
   const formatValue = (value) => {
-    if (typeof value === 'object' && value !== null) {
+    if (value === null) {
+      return 'null';
+    }
+    if (typeof value === 'object' && !Array.isArray(value)) {
       return '[complex value]';
+    }
+    if (Array.isArray(value)) {
+      return '[complex value]'; // или можно вернуть JSON.stringify(value)
     }
     if (typeof value === 'string') {
       return `'${value}'`;
     }
-    return value;
+    return String(value);
   };
 
   const buildLines = (diff, path = '') => {
     return diff.flatMap((node) => {
       const { key, type, value, oldValue, children } = node;
-      const fullPath = path ? `${path}.${key}` : key;
+      const escapedKey = key.includes('.') ? `["${key}"]` : key;
+      const fullPath = path ? `${path}.${escapedKey}` : escapedKey;
 
       switch (type) {
         case 'added':
@@ -26,7 +33,7 @@ const formatPlain = (diff) => {
         case 'unchanged':
           return [];
         default:
-          throw new Error(`Unknown type: ${type}`);
+          throw new Error(`Unknown type: ${type} for key '${key}'`);
       }
     });
   };
