@@ -20,13 +20,13 @@ const buildTreeFormat = (tree, level = 1) => {
         return `${tab(level)}${key}: ${stringify(value, level)}`;
       case 'updated':
         return [
-          `${tab(level - 1)}  - ${key}: ${stringify(oldValue, level)}`,
-          `${tab(level - 1)}  + ${key}: ${stringify(value, level)}`,
+          `${tab(level)}  - ${key}: ${stringify(oldValue, level)}`,
+          `${tab(level)}  + ${key}: ${stringify(value, level)}`,
         ];
       case 'added':
-        return `${tab(level - 1)}  + ${key}: ${stringify(value, level)}`;
+        return `${tab(level)}  + ${key}: ${stringify(value, level)}`;
       case 'removed':
-        return `${tab(level - 1)}  - ${key}: ${stringify(value, level)}`;
+        return `${tab(level)}  - ${key}: ${stringify(value, level)}`;
       case 'nested':
         return `${tab(level)}${key}: {\n${buildTreeFormat(children, level + 1)}\n${tab(level)}}`;
       default:
