@@ -13,8 +13,7 @@ program
   .description('Compares two configuration files and shows a difference.')
   .version('1.0.0', '-V, --version', 'output the version number')
   .option('-f, --format <type>', 'output format (default: "stylish")', 'stylish')
-  .argument('<filepath1>', 'path to the first file')
-  .argument('<filepath2>', 'path to the second file')
+  .arguments('<filepath1>, <filepath2>')
   .action((filepath1, filepath2, options) => {
     // Получаем абсолютные пути до файлов
     const absolutePath1 = path.resolve(process.cwd(), filepath1);
