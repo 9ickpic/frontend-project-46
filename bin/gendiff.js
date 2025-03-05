@@ -13,13 +13,8 @@ program
   .description('Compares two configuration files and shows a difference.')
   .version('1.0.0', '-V, --version', 'output the version number')
   .option('-f, --format <type>', 'output format (default: "stylish")', 'stylish')
-  .arguments('<filepath1>, <filepath2>')
+  .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2, options) => {
-    if (!fs.existsSync(filepath1) || !fs.existsSync(filepath2)) {
-      console.error('One or both files do not exist');
-      process.exit(1);
-    }
-
     // Получаем абсолютные пути до файлов
     const absolutePath1 = path.resolve(process.cwd(), filepath1);
     const absolutePath2 = path.resolve(process.cwd(), filepath2);
