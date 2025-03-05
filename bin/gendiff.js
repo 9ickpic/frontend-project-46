@@ -4,7 +4,7 @@ import { Command } from 'commander';
 import path from 'path';
 import fs from 'fs';
 import parse from './parsers.js';
-import genDiff from '../genDiff.js';
+import gendiff from '../genDiff.js';
 
 const program = new Command();
 
@@ -33,7 +33,7 @@ program
     const data2 = parse(fileContent2, format2);
 
     // Генерация и вывод различий
-    const diff = genDiff(data1, data2, options.format);
+    const diff = gendiff(data1, data2, options.format);
     console.log(diff);
   })
   .helpOption('-h, --help', 'display help for command');

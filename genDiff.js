@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import getFormatter from './formatters/index.js';
 
-const genDiff = (data1, data2, format = 'stylish') => {
+const gendiff = (data1, data2, format = 'stylish') => {
   const buildDiff = (obj1, obj2) => {
     const keys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)));
 
@@ -30,4 +30,4 @@ const genDiff = (data1, data2, format = 'stylish') => {
   return formatter(diff);
 };
 
-export default genDiff;
+export default gendiff;
