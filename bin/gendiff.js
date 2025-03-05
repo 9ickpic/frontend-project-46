@@ -13,27 +13,45 @@ program
   .description('Compares two configuration files and shows a difference.')
   .version('1.0.0', '-V, --version', 'output the version number')
   .option('-f, --format <type>', 'output format (default: "stylish")', 'stylish')
-  .arguments('<filepath1> <filepath2>')
+  .arguments('<filepath1> <filepath2>') // Исправлено: убрана запятая
   .action((filepath1, filepath2, options) => {
-    // Получаем абсолютные пути до файлов
-    const absolutePath1 = path.resolve(process.cwd(), filepath1);
-    const absolutePath2 = path.resolve(process.cwd(), filepath2);
+    try {
+      // Отладочное сообщение: выводим переданные аргументы
+      console.log('File 1:', filepath1);
+      console.log('File 2:', filepath2);
 
-    // Чтение файлов
-    const fileContent1 = fs.readFileSync(absolutePath1, 'utf-8');
-    const fileContent2 = fs.readFileSync(absolutePath2, 'utf-8');
+      // Получаем абсолютные пути до файлов
+      const absolutePath1 = path.resolve(process.cwd(), filepath1);
+      const absolutePath2 = path.resolve(process.cwd(), filepath2);
 
-    // Определение формата файла на основе расширения
-    const format1 = path.extname(filepath1).slice(1);
-    const format2 = path.extname(filepath2).slice(1);
+      // Проверка существования файлов
+      if (!fs.existsSync(absolutePath1)) {
+        throw new Error(`File not found: ${absolutePath1}`);
+      }
+      if (!fs.existsSync(absolutePath2)) {
+        throw new Error(`File not found: ${absolutePath2}`);
+      }
 
-    // Парсинг данных
-    const data1 = parse(fileContent1, format1);
-    const data2 = parse(fileContent2, format2);
+      // Чтение файлов
+      const fileContent1 = fs.readFileSync(absolutePath1, 'utf-8');
+      const fileContent2 = fs.readFileSync(absolutePath2, 'utf-8');
 
-    // Генерация и вывод различий
-    const diff = gendiff(data1, data2, options.format);
-    console.log(diff);
+      // Определение формата файла на основе расширения
+      const format1 = path.extname(filepath1).slice(1);
+      const format2 = path.extname(filepath2).slice(1);
+
+      // Парсинг данных
+      const data1 = parse(fileContent1, format1);
+      const data2 = parse(fileContent2, format2);
+
+      // Генерация и вывод различий
+      const diff = gendiff(data1, data2, options.format);
+      console.log(diff);
+    }
+    catch (error) {
+      console.error(`Error: ${error.message}`);
+      process.exit(1); // Завершаем процесс с кодом ошибки
+    }
   })
   .helpOption('-h, --help', 'display help for command');
 
