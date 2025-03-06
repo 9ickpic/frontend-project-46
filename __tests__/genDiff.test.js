@@ -58,7 +58,9 @@ const cases = [
   },
 ];
 
-test.each(cases)('TEST: $title', ({ f1, f2, exp, format }) => {
+test.each(cases)('TEST: $title', ({
+  f1, f2, exp, format,
+}) => {
   const actual = getActual(f1, f2, format);
   const expected = getFixture(exp);
   expect(actual).toBe(expected);
