@@ -3,8 +3,8 @@ import parse from './parser.js';
 import buildDiffTree from './buildDiffTree.js';
 import toFormat from './toFormat.js';
 
-const getAbsPath = filePath => path.resolve(process.cwd(), filePath);
-const getExtname = filepath => path.extname(filepath);
+const getAbsPath = (filePath) => path.resolve(process.cwd(), filePath);
+const getExtname = (filepath) => path.extname(filepath);
 
 export default (filePath1, filePath2, format = 'stylish') => {
   const path1 = getAbsPath(filePath1);

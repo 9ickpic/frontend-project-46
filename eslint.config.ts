@@ -1,28 +1,18 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import stylistic from '@stylistic/eslint-plugin';
-// import { Linter } from 'eslint'
-
-export default [
-  stylistic.configs.recommended,
-  pluginJs.configs.recommended,
-  {
-    files: ['**/*.{js,ts,tsx}'],
+export default {
+  env: {
+    node: true,
+    es2021: true,
   },
-  {
-    ignores: ['dist/'],
+  extends: ['airbnb-base'],
+  overrides: [],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  {
-    languageOptions: {
-      globals: globals.node,
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-    rules: {
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@stylistic/semi': 'off',
-    },
+  rules: {
+    'no-underscore-dangle': [2, { allow: ['__filename', '__dirname'] }],
+    'import/extensions': 0,
+    'import/no-extraneous-dependencies': 0,
+    'no-console': 0,
   },
-]; // satisfies Linter.Config[]
+};
