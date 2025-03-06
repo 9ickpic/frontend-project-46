@@ -5,4 +5,4 @@ export default {
   coverageReporters: ['lcov'],
   collectCoverageFrom: ['**/*.js'],
   coveragePathIgnorePatterns: ['/node_modules/', '/__tests__/'],
-};
+}

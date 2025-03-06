@@ -1,17 +1,17 @@
-import { test, expect } from '@jest/globals';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import genDiff from '../src/index.js';
+import { test, expect } from '@jest/globals'
+import { readFileSync } from 'fs'
+import { join, dirname } from 'path'
+import { fileURLToPath } from 'url'
+import genDiff from '../src/index.js'
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const fixturePath = (filename) => join(__dirname, '..', '__fixtures__', filename);
-const getFixture = (filename) => readFileSync(fixturePath(filename), 'utf8').trim();
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const fixturePath = filename => join(__dirname, '..', '__fixtures__', filename)
+const getFixture = filename => readFileSync(fixturePath(filename), 'utf8').trim()
 const getActual = (filename1, filename2, format) => {
-  const path1 = fixturePath(filename1);
-  const path2 = fixturePath(filename2);
-  return genDiff(path1, path2, format);
-};
+  const path1 = fixturePath(filename1)
+  const path2 = fixturePath(filename2)
+  return genDiff(path1, path2, format)
+}
 
 const cases = [
   {
@@ -56,12 +56,12 @@ const cases = [
     format: 'JSON',
     title: 'to JSON from json',
   },
-];
+]
 
 test.each(cases)('TEST: $title', ({
   f1, f2, exp, format,
 }) => {
-  const actual = getActual(f1, f2, format);
-  const expected = getFixture(exp);
-  expect(actual).toBe(expected);
-});
+  const actual = getActual(f1, f2, format)
+  const expected = getFixture(exp)
+  expect(actual).toBe(expected)
+})
