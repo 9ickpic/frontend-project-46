@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const getSpaces = (depth) => '    '.repeat(depth);
+const getSpaces = depth => '    '.repeat(depth);
 
 const marks = {
   openBracket: '{',
@@ -11,7 +11,7 @@ const marks = {
   nested: '  ',
 };
 
-const getCloseBracket = (depth) =>
+const getCloseBracket = depth =>
   `${getSpaces(depth - 1)}${marks.closeBracket}`;
 
 const stringify = (node, depth = 1) => {
@@ -20,7 +20,7 @@ const stringify = (node, depth = 1) => {
     return `${node}`;
   }
   const strings = Object.entries(node).map(
-    ([key, val]) => `${indent}${key}: ${stringify(val, depth + 1)}`
+    ([key, val]) => `${indent}${key}: ${stringify(val, depth + 1)}`,
   );
   return [marks.openBracket, ...strings, getCloseBracket(depth)].join('\n');
 };
@@ -41,10 +41,10 @@ const stylish = (diffTree) => {
             ...acc,
             `${indent}${marks.removed}${key}: ${stringify(
               previous,
-              depth + 1
+              depth + 1,
             )}\n${indent}${marks.added}${key}: ${stringify(
               current,
-              depth + 1
+              depth + 1,
             )}`,
           ];
         case 'nested':

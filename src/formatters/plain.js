@@ -22,16 +22,16 @@ const plain = (diffTree) => {
           return [
             ...acc,
             `Property '${currentPath.substring(
-              1
+              1,
             )}' was added with value: ${stringify(value)}`,
           ];
         case 'updated':
           return [
             ...acc,
             `Property '${currentPath.substring(
-              1
+              1,
             )}' was updated. From ${stringify(previous)} to ${stringify(
-              current
+              current,
             )}`,
           ];
         case 'nested':
