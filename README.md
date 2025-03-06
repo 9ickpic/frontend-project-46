@@ -5,7 +5,7 @@
 [![CI](https://github.com/9ickpic/frontend-project-46/actions/workflows/user-check.yml/badge.svg)](https://github.com/9ickpic/frontend-project-46/actions/workflows/user-check.yml)
 
 ### CodeClimate
-[![Test Coverage](https://api.codeclimate.com/v1/badges/dc40d64c398cb325ab79/test_coverage)](https://codeclimate.com/github/9ickpic/frontend-project-46/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8c7a9056975bf585eae9/maintainability)](https://codeclimate.com/github/9ickpic/frontend-project-46/maintainability)
 
 Вычислитель отличий (JavaScript)
 
