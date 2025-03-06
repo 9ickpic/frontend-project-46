@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/arrow-parens */
 import { test, expect } from '@jest/globals';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
@@ -5,9 +6,9 @@ import { fileURLToPath } from 'url';
 import genDiff from '../src/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const fixturePath = filename =>
+const fixturePath = (filename) =>
   join(__dirname, '..', '__fixtures__', filename);
-const getFixture = filename =>
+const getFixture = (filename) =>
   readFileSync(fixturePath(filename), 'utf8').trim();
 const getActual = (filename1, filename2, format) => {
   const path1 = fixturePath(filename1);

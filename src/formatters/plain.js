@@ -13,7 +13,14 @@ const stringify = (node) => {
 const plain = (diffTree) => {
   const iter = (node, path = '') => {
     const strings = node.reduce((acc, prop) => {
-      const { key, status, value, previous, current, children } = prop;
+      const {
+        key,
+        status,
+        value,
+        previous,
+        current,
+        children,
+      } = prop; // Добавлен перенос строки после открывающей скобки и перед закрывающей скобкой
       const currentPath = [path, key].join('.');
       switch (status) {
         case 'removed':
