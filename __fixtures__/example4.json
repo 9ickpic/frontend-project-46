@@ -1,0 +1,17 @@
+{
+  "car": "dodge",
+  "color": "yellow",
+  "wheels": 4,
+  "engine": {
+    "cylinders": 6,
+    "size": 3.2
+  },
+  "supercharged": true,
+  "owner": {
+    "name": "Mike",
+    "adress": {
+      "country": "USA",
+      "city": "L.A. / Beverlie Hills"
+    }
+  }
+}

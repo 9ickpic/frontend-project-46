@@ -1,0 +1,16 @@
+{
+  "car": "honda",
+  "color": "red",
+  "wheels": 4,
+  "engine": {
+    "cylinders": 4,
+    "size": 2.2
+  },
+  "owner": {
+    "name": "Mike",
+    "adress": {
+      "country": "USA",
+      "city": "L.A. / Beverlie Hills"
+    }
+  }
+}
