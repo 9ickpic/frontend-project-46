@@ -1,7 +1,6 @@
-/* eslint-disable @stylistic/arrow-parens */
 import _ from 'lodash';
 
-const getSpaces = (depth) => '    '.repeat(depth);
+const getSpaces = depth => '    '.repeat(depth);
 
 const marks = {
   openBracket: '{',
@@ -12,7 +11,7 @@ const marks = {
   nested: '  ',
 };
 
-const getCloseBracket = (depth) => `${getSpaces(depth - 1)}${marks.closeBracket}`;
+const getCloseBracket = depth => `${getSpaces(depth - 1)}${marks.closeBracket}`;
 
 const stringify = (node, depth = 1) => {
   const indent = getSpaces(depth);
