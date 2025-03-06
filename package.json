@@ -13,7 +13,7 @@
   "license": "ISC",
   "author": "Yaroslav Selyutin",
   "type": "module",
-  "main": "/src/index.js",
+  "main": "src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
